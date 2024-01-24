@@ -47,7 +47,7 @@ def get_conversation_chain(vectorstore):
         "microsoft/phi-2",
         load_in_8bit=True,
         torch_dtype=torch.float32,
-        device_map='auto',
+        # device_map='auto',
         quantization_config=quantization_config
     )
     pipe = pipeline(
