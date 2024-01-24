@@ -9,6 +9,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os 
 import requests
 from langchain_community.document_loaders import WebBaseLoader
+from langchain import PromptTemplate, LLMChain
 
 # huggingface_api_key = st.secrets["HUGGINGFACEHUB_API_KEY"]
 huggingface_api_key = "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"
@@ -36,8 +37,15 @@ def get_conversation_chain(vectorstore):
     # llm = HuggingFaceHub(repo_id="microsoft/phi-2", model_kwargs={"temperature":0.5, "max_length":512})
     
     # llm = HuggingFaceHub(repo_id="zhengr/MixTAO-7Bx2-MoE-Instruct-v1.0", model_kwargs={"temperature":0.5, "max_length":512})
+    template = """respond to the instruction below. behave like a chatbot and respond to the user. try to be helpful.
+    ### Instruction:
+    {instruction}
+    Answer:"""
+    prompt = PromptTemplate(template=template, input_variables=["instruction"])
+
     conversation_chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
+        prompt=prompt,
         chain_type="stuff",
         retriever=vectorstore.as_retriever(search_kwargs={"k": 3}),
         memory=memory
