@@ -23,7 +23,8 @@ os.environ["HUGGINGFACEHUB_API_TOKEN"] = huggingface_api_key
 
 def get_vectorstore(option):
     embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
+        # model_name="sentence-transformers/all-MiniLM-L6-v2",
+        model_name="sentence-transformers/sentence-t5-xxl",
         model_kwargs={'device': 'cpu'})
 
     if option == "Equity, Diversion & Inclusion":
