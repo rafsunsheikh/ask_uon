@@ -68,19 +68,19 @@ To run this application, you will need:
 
 ## Application Structure
 
-- **`app.py`**: Main Streamlit application file that handles user input and interaction.
+- **`main_2.py`**: Main Streamlit application file that handles user input and interaction.
 - **`requirements.txt`**: Lists all Python package dependencies.
 - **`htmlTemplates.py`**: Contains HTML templates for styling chat messages.
-- **`embedding_script.py`**: Script used to create and save FAISS vector stores from web content.
+- **`preprocess_embedding.py`**: Script used to create and save FAISS vector stores from web content.
 
 ## Code Overview
 
-- **`app.py`**: Manages the Streamlit app interface and integrates with LangChain for conversational retrieval.
+- **`main_2.py`**: Manages the Streamlit app interface and integrates with LangChain for conversational retrieval.
   - Loads API keys.
   - Provides functions to handle user input and manage chat history.
   - Sets up vector stores and conversation chains based on selected topics.
 
-- **`embedding_script.py`**: Handles the creation and storage of FAISS vector stores.
+- **`preprocess_embedding.py`**: Handles the creation and storage of FAISS vector stores.
   - Retrieves and processes web content.
   - Splits content into chunks and embeds it.
   - Saves vector stores locally for efficient retrieval.
