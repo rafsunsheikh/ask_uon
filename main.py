@@ -67,7 +67,7 @@ def handle_userinput(user_question):
 
 
 def main():
-    st.set_page_config(page_title="Chat with University of Newcastle",
+    st.set_page_config(page_title="Chat with the University",
                        page_icon=":school:")
     st.write(css, unsafe_allow_html=True)
 
@@ -76,7 +76,7 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
 
-    st.header("Chat with University of Newcastle :school:")
+    st.header("Chat with the University :school:")
     user_question = st.text_input("Ask a question to the university  website:")
     if user_question:
         handle_userinput(user_question)
