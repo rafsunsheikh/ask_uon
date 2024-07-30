@@ -12,7 +12,7 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain import PromptTemplate, LLMChain
 
 # huggingface_api_key = st.secrets["HUGGINGFACEHUB_API_KEY"]
-huggingface_api_key = "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"
+
 os.environ["HUGGINGFACEHUB_API_TOKEN"] = huggingface_api_key
 
 
